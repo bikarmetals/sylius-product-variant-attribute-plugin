@@ -61,7 +61,6 @@
             "/spec/",
             "/tests/",
             "/vendor/",
-            "/.env.local",
             "/.gitattributes",
             "/.gitignore",
             "/easy-coding-standard.yml",
