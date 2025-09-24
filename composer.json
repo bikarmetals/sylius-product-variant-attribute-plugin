@@ -22,12 +22,9 @@
         "phpstan/phpstan-doctrine": "0.12.33",
         "phpstan/phpstan-strict-rules": "^0.12.10",
         "phpstan/phpstan-webmozart-assert": "0.12.12",
-        "sensiolabs/security-checker": "^6.0.3",
         "sylius-labs/coding-standard": "^4.4.1",
-        "symfony/browser-kit": "^4.4 || ^5.4.45",
         "symfony/debug-bundle": "^4.4 || ^5.4.45",
         "symfony/dotenv": "^4.4 || ^5.4.48",
-        "symfony/intl": "^4.4 || ^5.4.47",
         "symfony/web-profiler-bundle": "^4.4 || ^5.4.48"
     },
     "config": {
