@@ -5,10 +5,14 @@
     "description": "Plugin for Sylius to add attributes on product variants.",
     "license": "MIT",
     "scripts": {
-        "test": "vendor/bin/phpspec run"
+        "test": "vendor/bin/phpspec run",
+        "analyse": "vendor/bin/phpstan analyse src --level 10",
+        "lint": "vendor/bin/ecs"
     },
     "scripts-descriptions": {
-        "test": "Run phpspec tests"
+        "test": "Run phpspec tests",
+        "analyse": "Run PHPStan",
+        "lint": "Run ECS linter"
     },
     "require": {
         "php": "^7.4 || ^8.0",
@@ -17,12 +21,8 @@
     "require-dev": {
         "mockery/mockery": "^1.6.12",
         "phpspec/phpspec": "^7.6",
-        "phpstan/extension-installer": "^1.1",
-        "phpstan/phpstan": "0.12.85",
-        "phpstan/phpstan-doctrine": "0.12.33",
-        "phpstan/phpstan-strict-rules": "^0.12.10",
-        "phpstan/phpstan-webmozart-assert": "0.12.12",
-        "sylius-labs/coding-standard": "^4.4.1",
+        "phpstan/phpstan": "^2.1",
+        "sylius-labs/coding-standard": "^4.4",
         "symfony/debug-bundle": "^4.4 || ^5.4.45",
         "symfony/dotenv": "^4.4 || ^5.4.48",
         "symfony/web-profiler-bundle": "^4.4 || ^5.4.48"
@@ -60,7 +60,7 @@
             "/vendor/",
             "/.gitattributes",
             "/.gitignore",
-            "/easy-coding-standard.yml",
+            "/ecs.php",
             "/phpspec.yml"
         ]
     }
