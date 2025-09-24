@@ -4,6 +4,12 @@
     "keywords": ["sylius", "sylius-plugin"],
     "description": "Plugin for Sylius to add attributes on product variants.",
     "license": "MIT",
+    "scripts": {
+        "test": "vendor/bin/phpspec run"
+    },
+    "scripts-descriptions": {
+        "test": "Run phpspec tests"
+    },
     "require": {
         "php": "^7.4 || ^8.0",
         "sylius/sylius": "~1.10.14"
