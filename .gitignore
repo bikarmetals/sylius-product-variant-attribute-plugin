@@ -1,6 +1,4 @@
 /.vscode/
-/node_modules/
-/tests/Application/yarn.lock
 /vendor/
 /.phpunit.result.cache
 /behat.yml
