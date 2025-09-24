@@ -9,7 +9,6 @@
         "sylius/sylius": "~1.10.14"
     },
     "require-dev": {
-        "friendsofsymfony/oauth-server-bundle": "^1.6 || >2.0.0-alpha.0 ^2.0@dev",
         "mockery/mockery": "^1.6.12",
         "phpspec/phpspec": "^7.6",
         "phpstan/extension-installer": "^1.1",
