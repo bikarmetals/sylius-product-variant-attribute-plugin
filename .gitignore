@@ -1,4 +1,3 @@
 /.vscode/
 /vendor/
-/behat.yml
 /phpspec.yml
