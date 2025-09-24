@@ -6,7 +6,7 @@
     "license": "MIT",
     "scripts": {
         "test": "vendor/bin/phpspec run",
-        "analyse": "vendor/bin/phpstan analyse src --level 10",
+        "analyse": "vendor/bin/phpstan analyse",
         "lint": "vendor/bin/ecs"
     },
     "scripts-descriptions": {
@@ -22,6 +22,7 @@
         "mockery/mockery": "^1.6.12",
         "phpspec/phpspec": "^7.6",
         "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
         "sylius-labs/coding-standard": "^4.4",
         "symfony/debug-bundle": "^4.4 || ^5.4.45",
         "symfony/dotenv": "^4.4 || ^5.4.48",
