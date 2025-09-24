@@ -46,5 +46,20 @@
     },
     "autoload-dev": {
         "classmap": ["tests/Application/Kernel.php"]
+    },
+    "archive": {
+        "exclude": [
+            "/.ddev/",
+            "/.vscode/",
+            "/etc/",
+            "/spec/",
+            "/tests/",
+            "/vendor/",
+            "/.env.local",
+            "/.gitattributes",
+            "/.gitignore",
+            "/easy-coding-standard.yml",
+            "/phpspec.yml"
+        ]
     }
 }
