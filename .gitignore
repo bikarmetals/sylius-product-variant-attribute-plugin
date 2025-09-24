@@ -1,13 +1,9 @@
 /.vscode/
-/vendor/
-/node_modules/
-/composer.lock
-
 /etc/build/*
 !/etc/build/.gitignore
-
+/node_modules/
 /tests/Application/yarn.lock
-
+/vendor/
 /.phpunit.result.cache
 /behat.yml
 /phpspec.yml
