@@ -58,7 +58,9 @@
         "exclude": [
             "/.ddev/",
             "/.vscode/",
+            "/bin/",
             "/etc/",
+            "/node_modules/",
             "/spec/",
             "/tests/",
             "/vendor/",

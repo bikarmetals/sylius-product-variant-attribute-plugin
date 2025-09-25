@@ -1,5 +1,7 @@
 /.ddev/                export-ignore
+/bin/                  export-ignore
 /etc/                  export-ignore
+/node_modules/         export-ignore
 /spec/                 export-ignore
 /tests/                export-ignore
 /.gitattributes        export-ignore
