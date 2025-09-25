@@ -26,17 +26,17 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
     public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 
         $loader->load('services.yaml');
 
         $container->setParameter(
             'umanit_sylius_product_variant_attribute_plugin.rename_product_attribute_menu_entry',
-            $config['rename_product_attribute_menu_entry']
+            $config['rename_product_attribute_menu_entry'],
         );
         $container->setParameter(
             'umanit_sylius_product_variant_attribute_plugin.product_variant_model',
-            $config['product_variant_model']
+            $config['product_variant_model'],
         );
     }
 
@@ -50,8 +50,8 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
         }
         $container->prependExtensionConfig('doctrine_migrations', [
             'migrations_paths' => [
-                'Umanit\\SyliusProductVariantAttributePlugin\\Migrations' => '@UmanitSyliusProductVariantAttributePlugin/Migrations'
-            ]
+                'Umanit\\SyliusProductVariantAttributePlugin\\Migrations' => '@UmanitSyliusProductVariantAttributePlugin/Migrations',
+            ],
         ]);
     }
 
@@ -64,28 +64,28 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
         $container->prependExtensionConfig('sylius_attribute', [
             'resources' => [
                 'product_variant' => [
-                    'subject'         => $config['product_variant_model'],
-                    'attribute'       => [
-                        'classes'     => [
-                            'model'      => ProductVariantAttribute::class,
-                            'interface'  => ProductVariantAttributeInterface::class,
+                    'subject' => $config['product_variant_model'],
+                    'attribute' => [
+                        'classes' => [
+                            'model' => ProductVariantAttribute::class,
+                            'interface' => ProductVariantAttributeInterface::class,
                             'controller' => ProductVariantAttributeController::class,
-                            'form'       => ProductVariantAttributeType::class,
+                            'form' => ProductVariantAttributeType::class,
                         ],
                         'translation' => [
                             'classes' => [
-                                'model'     => ProductVariantAttributeTranslation::class,
+                                'model' => ProductVariantAttributeTranslation::class,
                                 'interface' => ProductVariantAttributeTranslationInterface::class,
-                                'form'      => ProductVariantAttributeTranslationType::class,
+                                'form' => ProductVariantAttributeTranslationType::class,
                             ],
                         ],
                     ],
                     'attribute_value' => [
                         'classes' => [
-                            'model'      => ProductVariantAttributeValue::class,
-                            'interface'  => ProductVariantAttributeValueInterface::class,
+                            'model' => ProductVariantAttributeValue::class,
+                            'interface' => ProductVariantAttributeValueInterface::class,
                             'repository' => ProductVariantAttributeValueRepository::class,
-                            'form'       => ProductVariantAttributeValueType::class,
+                            'form' => ProductVariantAttributeValueType::class,
                         ],
                     ],
                 ],

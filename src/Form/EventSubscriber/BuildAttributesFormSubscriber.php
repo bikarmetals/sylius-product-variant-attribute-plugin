@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Umanit\SyliusProductVariantAttributePlugin\Form\EventSubscriber;
 
 use Sylius\Component\Attribute\Model\AttributeValueInterface;
-use Sylius\Component\Product\Model\ProductAttributeInterface;
-use Sylius\Component\Product\Model\ProductAttributeValueInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Translation\Provider\TranslationLocaleProviderInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -27,7 +25,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
 
     public function __construct(
         FactoryInterface $attributeValueFactory,
-        TranslationLocaleProviderInterface $localeProvider
+        TranslationLocaleProviderInterface $localeProvider,
     ) {
         $this->attributeValueFactory = $attributeValueFactory;
         $this->localeProvider = $localeProvider;
@@ -37,7 +35,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
     {
         return [
             FormEvents::PRE_SET_DATA => 'preSetData',
-            FormEvents::POST_SUBMIT  => 'postSubmit',
+            FormEvents::POST_SUBMIT => 'postSubmit',
         ];
     }
 
@@ -45,7 +43,6 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
     {
         $productVariant = $event->getData();
 
-        /** @var ProductVariantInterface $productVariant */
         Assert::isInstanceOf($productVariant, ProductVariantInterface::class);
 
         $defaultLocaleCode = $this->localeProvider->getDefaultLocaleCode();
@@ -55,7 +52,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
             ->filter(
                 static function (ProductVariantAttributeValueInterface $attribute) use ($defaultLocaleCode) {
                     return $attribute->getLocaleCode() === $defaultLocaleCode;
-                }
+                },
             )
         ;
 
@@ -68,7 +65,6 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
     {
         $productVariant = $event->getData();
 
-        /** @var ProductVariantInterface $productVariant */
         Assert::isInstanceOf($productVariant, ProductVariantInterface::class);
 
         /** @var AttributeValueInterface $attribute */
@@ -81,7 +77,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
 
     private function resolveLocalizedAttributes(
         ProductVariantInterface $productVariant,
-        ProductVariantAttributeValueInterface $attribute
+        ProductVariantAttributeValueInterface $attribute,
     ): void {
         $localeCodes = $this->localeProvider->getDefinedLocalesCodes();
 
@@ -95,7 +91,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
 
     private function createProductVariantAttributeValue(
         ProductVariantAttributeInterface $attribute,
-        string $localeCode
+        string $localeCode,
     ): ProductVariantAttributeValueInterface {
         /** @var ProductVariantAttributeValueInterface $attributeValue */
         $attributeValue = $this->attributeValueFactory->createNew();

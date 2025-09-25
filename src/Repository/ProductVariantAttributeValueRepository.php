@@ -13,9 +13,9 @@ class ProductVariantAttributeValueRepository extends EntityRepository implements
         return $this
             ->createQueryBuilder('o')
             ->andWhere('o.json LIKE :key')
-            ->setParameter('key', '%"'.$choiceKey.'"%')
+            ->setParameter('key', '%"' . $choiceKey . '"%')
             ->getQuery()
             ->getResult()
-            ;
+        ;
     }
 }

@@ -23,7 +23,7 @@ final class ProductVariantTypeExtension extends AbstractTypeExtension
 
     public function __construct(
         FactoryInterface $attributeValueFactory,
-        TranslationLocaleProviderInterface $localeProvider
+        TranslationLocaleProviderInterface $localeProvider,
     ) {
         $this->attributeValueFactory = $attributeValueFactory;
         $this->localeProvider = $localeProvider;
@@ -34,16 +34,15 @@ final class ProductVariantTypeExtension extends AbstractTypeExtension
         $builder
             ->addEventSubscriber(new BuildAttributesFormSubscriber($this->attributeValueFactory, $this->localeProvider))
             ->add('attributes', CollectionType::class, [
-                'entry_type'   => ProductVariantAttributeValueType::class,
-                'required'     => false,
-                'prototype'    => true,
-                'allow_add'    => true,
+                'entry_type' => ProductVariantAttributeValueType::class,
+                'required' => false,
+                'prototype' => true,
+                'allow_add' => true,
                 'allow_delete' => true,
                 'by_reference' => false,
-                'label'        => false,
+                'label' => false,
             ])
         ;
-
     }
 
     public static function getExtendedTypes(): array

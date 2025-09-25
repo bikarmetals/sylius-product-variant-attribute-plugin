@@ -49,7 +49,6 @@ final class SelectProductVariantAttributeChoiceRemoveListener
     }
 
     /**
-     * @param ObjectManager  $entityManager
      * @param array|string[] $choiceKeys
      */
     public function removeValues(ObjectManager $entityManager, array $choiceKeys): void

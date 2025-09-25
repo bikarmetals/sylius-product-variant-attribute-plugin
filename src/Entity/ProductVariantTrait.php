@@ -26,11 +26,10 @@ trait ProductVariantTrait
 
     public function addAttribute(?AttributeValueInterface $attribute): void
     {
-        /** @var ProductVariantAttributeValueInterface $attribute */
         Assert::isInstanceOf(
             $attribute,
             ProductVariantAttributeValueInterface::class,
-            'Attribute objects added to a ProductVariant object have to implement ProductVariantAttributeValueInterface'
+            'Attribute objects added to a ProductVariant object have to implement ProductVariantAttributeValueInterface',
         );
 
         if (!$this->hasAttribute($attribute)) {
@@ -41,11 +40,10 @@ trait ProductVariantTrait
 
     public function removeAttribute(?AttributeValueInterface $attribute): void
     {
-        /** @var ProductVariantAttributeValueInterface $attribute */
         Assert::isInstanceOf(
             $attribute,
             ProductVariantAttributeValueInterface::class,
-            'Attribute objects removed from a ProductVariant object have to implement ProductVariantAttributeValueInterface'
+            'Attribute objects removed from a ProductVariant object have to implement ProductVariantAttributeValueInterface',
         );
 
         if ($this->hasAttribute($attribute)) {
@@ -95,7 +93,7 @@ trait ProductVariantTrait
     public function getAttributesByLocale(
         string $localeCode,
         string $fallbackLocaleCode,
-        ?string $baseLocaleCode = null
+        ?string $baseLocaleCode = null,
     ): Collection {
         if (null === $baseLocaleCode || $baseLocaleCode === $fallbackLocaleCode) {
             $baseLocaleCode = $fallbackLocaleCode;
@@ -105,7 +103,7 @@ trait ProductVariantTrait
         $attributes = $this->attributes->filter(
             function (ProductVariantAttributeValueInterface $attribute) use ($baseLocaleCode) {
                 return $baseLocaleCode === $attribute->getLocaleCode() || null === $attribute->getLocaleCode();
-            }
+            },
         );
 
         $attributesWithFallback = [];
@@ -119,7 +117,7 @@ trait ProductVariantTrait
     protected function getAttributeInDifferentLocale(
         ProductVariantAttributeValueInterface $attributeValue,
         string $localeCode,
-        ?string $fallbackLocaleCode = null
+        ?string $fallbackLocaleCode = null,
     ): AttributeValueInterface {
         if (!$this->hasNotEmptyAttributeByCodeAndLocale($attributeValue->getCode(), $localeCode)) {
             if (

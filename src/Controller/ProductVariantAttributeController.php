@@ -47,8 +47,8 @@ class ProductVariantAttributeController extends ProductAttributeController
         }
 
         return $this->render($template, [
-            'forms'    => $forms,
-            'count'    => $request->query->get('count'),
+            'forms' => $forms,
+            'count' => $request->query->get('count'),
             'metadata' => $this->metadata,
         ]);
     }

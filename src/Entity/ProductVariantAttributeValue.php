@@ -14,7 +14,6 @@ class ProductVariantAttributeValue extends BaseAttributeValue implements Product
     {
         $subject = $this->getSubject();
 
-        /** @var ProductVariantInterface|null $subject */
         Assert::nullOrIsInstanceOf($subject, ProductVariantInterface::class);
 
         return $subject;

@@ -14,6 +14,7 @@ class AdminProductVariantMenuListener
 {
     /** @var MenuManipulator */
     private $menuManipulator;
+
     /** @var bool */
     private $renameProductAttributeMenuEntry;
 
@@ -34,7 +35,7 @@ class AdminProductVariantMenuListener
 
         $attributes = $catalog->addChild(
             'variant_attributes',
-            ['route' => 'sylius_admin_product_variant_attribute_index']
+            ['route' => 'sylius_admin_product_variant_attribute_index'],
         );
 
         $attributes
@@ -58,7 +59,7 @@ class AdminProductVariantMenuListener
         $attributes
             ->setAttribute(
                 'template',
-                '@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariant/Tab/_attributes.html.twig'
+                '@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariant/Tab/_attributes.html.twig',
             )
             ->setLabel('sylius.ui.attributes')
         ;

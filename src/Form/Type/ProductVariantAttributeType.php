@@ -16,8 +16,8 @@ final class ProductVariantAttributeType extends AttributeType
 
         $builder
             ->add('position', IntegerType::class, [
-                'required'        => false,
-                'label'           => 'sylius.form.product_attribute.position',
+                'required' => false,
+                'label' => 'sylius.form.product_attribute.position',
                 'invalid_message' => 'sylius.product_attribute.invalid',
             ]);
     }

@@ -35,11 +35,11 @@ class MapProductVariantAttributesSubscriber implements EventSubscriber
         }
 
         $metadata->mapOneToMany([
-            'fieldName'     => 'attributes',
-            'targetEntity'  => ProductVariantAttributeValue::class,
-            'mappedBy'      => 'subject',
+            'fieldName' => 'attributes',
+            'targetEntity' => ProductVariantAttributeValue::class,
+            'mappedBy' => 'subject',
             'orphanRemoval' => true,
-            'cascade'       => ['all'],
+            'cascade' => ['all'],
         ]);
     }
 }
