@@ -7,12 +7,14 @@
     "scripts": {
         "test": "vendor/bin/phpspec run",
         "analyse": "vendor/bin/phpstan analyse",
-        "lint": "vendor/bin/ecs"
+        "lint": "vendor/bin/ecs",
+        "lint:fix": "vendor/bin/ecs --fix"
     },
     "scripts-descriptions": {
         "test": "Run phpspec tests",
         "analyse": "Run PHPStan",
-        "lint": "Run ECS linter"
+        "lint": "Run ECS linter",
+        "lint:fix": "Fix ECS linter errors"
     },
     "require": {
         "php": "^7.4 || ^8.0",
