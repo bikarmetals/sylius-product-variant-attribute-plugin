@@ -29,6 +29,9 @@ final class ProductVariantTypeExtension extends AbstractTypeExtension
         $this->localeProvider = $localeProvider;
     }
 
+    /**
+     * @param array<string,mixed> $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder

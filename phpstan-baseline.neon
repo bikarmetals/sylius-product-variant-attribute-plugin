@@ -1,0 +1,238 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Call to an undefined method object\:\:create\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Call to an undefined method object\:\:getDefinedLocalesCodes\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Cannot call method createView\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Cannot call method getCode\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Cannot call method getData\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Cannot call method handleRequest\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Parameter \#1 \$attribute of method Sylius\\Bundle\\ProductBundle\\Controller\\ProductAttributeController\:\:getAttributeFormsInAllLocales\(\) expects Sylius\\Component\\Attribute\\Model\\AttributeInterface, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Parameter \#1 \$view of method Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController\:\:render\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Parameter \#2 \$localeCodes of method Sylius\\Bundle\\ProductBundle\\Controller\\ProductAttributeController\:\:getAttributeFormsInAllLocales\(\) expects array\<string\>, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/Controller/ProductVariantAttributeController.php
+
+		-
+			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:children\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method booleanNode\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method cannotBeEmpty\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method defaultTrue\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method defaultValue\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method end\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 3
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method info\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Cannot call method scalarNode\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/DependencyInjection/Configuration.php
+
+		-
+			message: '#^Method Umanit\\SyliusProductVariantAttributePlugin\\DependencyInjection\\UmanitSyliusProductVariantAttributeExtension\:\:load\(\) has parameter \$configs with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/UmanitSyliusProductVariantAttributeExtension.php
+
+		-
+			message: '#^Method Umanit\\SyliusProductVariantAttributePlugin\\DependencyInjection\\UmanitSyliusProductVariantAttributeExtension\:\:prependAttribute\(\) has parameter \$config with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: src/DependencyInjection/UmanitSyliusProductVariantAttributeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$configuration of method Symfony\\Component\\DependencyInjection\\Extension\\Extension\:\:processConfiguration\(\) expects Symfony\\Component\\Config\\Definition\\ConfigurationInterface, Symfony\\Component\\Config\\Definition\\ConfigurationInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/DependencyInjection/UmanitSyliusProductVariantAttributeExtension.php
+
+		-
+			message: '#^Parameter \#2 \$value of method Symfony\\Component\\DependencyInjection\\Container\:\:setParameter\(\) expects array\|bool\|float\|int\|string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: src/DependencyInjection/UmanitSyliusProductVariantAttributeExtension.php
+
+		-
+			message: '#^Parameter \#1 \$subject of method Sylius\\Component\\Attribute\\Model\\AttributeValue\:\:setSubject\(\) expects Sylius\\Component\\Attribute\\Model\\AttributeSubjectInterface\|null, Sylius\\Component\\Product\\Model\\ProductVariantInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Entity/ProductVariantAttributeValue.php
+
+		-
+			message: '#^Trait Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantTrait is used zero times and is not analysed\.$#'
+			identifier: trait.unused
+			count: 1
+			path: src/Entity/ProductVariantTrait.php
+
+		-
+			message: '''
+				#^Call to method getEntity\(\) of deprecated class Doctrine\\ORM\\Event\\LifecycleEventArgs\:
+				This class will be removed in ORM 3\.0\. Use one of the dedicated classes instead\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '''
+				#^Call to method getEntityManager\(\) of deprecated class Doctrine\\ORM\\Event\\LifecycleEventArgs\:
+				This class will be removed in ORM 3\.0\. Use one of the dedicated classes instead\.$#
+			'''
+			identifier: method.deprecatedClass
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Cannot access offset ''choices'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_diff expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_diff_key expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Parameter \#1 \$className of method Doctrine\\Persistence\\ObjectManager\:\:getRepository\(\) expects class\-string\<object\>, string given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Parameter \#2 \.\.\.\$arrays of function array_diff_key expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '''
+				#^Parameter \$event of method Umanit\\SyliusProductVariantAttributePlugin\\Event\\Listener\\SelectProductVariantAttributeChoiceRemoveListener\:\:postUpdate\(\) has typehint with deprecated class Doctrine\\ORM\\Event\\LifecycleEventArgs\:
+				This class will be removed in ORM 3\.0\. Use one of the dedicated classes instead\.$#
+			'''
+			identifier: parameter.deprecatedClass
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Unable to resolve the template type T in call to method Doctrine\\Persistence\\ObjectManager\:\:getRepository\(\)$#'
+			identifier: argument.templateType
+			count: 1
+			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
+
+		-
+			message: '#^Parameter \#1 \$attribute of method Umanit\\SyliusProductVariantAttributePlugin\\Form\\EventSubscriber\\BuildAttributesFormSubscriber\:\:createProductVariantAttributeValue\(\) expects Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantAttributeInterface, Sylius\\Component\\Attribute\\Model\\AttributeInterface\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
+
+		-
+			message: '#^Parameter \#1 \$attributeCode of method Sylius\\Component\\Attribute\\Model\\AttributeSubjectInterface\:\:hasAttributeByCodeAndLocale\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
+
+		-
+			message: '#^Parameter \#1 \$p of method Doctrine\\Common\\Collections\\Collection\<\(int\|string\),Sylius\\Component\\Attribute\\Model\\AttributeValueInterface\>\:\:filter\(\) expects Closure\(Sylius\\Component\\Attribute\\Model\\AttributeValueInterface\)\: bool, Closure\(Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantAttributeValueInterface\)\: bool given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
+
+		-
+			message: '#^Parameter \#2 \$attribute of method Umanit\\SyliusProductVariantAttributePlugin\\Form\\EventSubscriber\\BuildAttributesFormSubscriber\:\:resolveLocalizedAttributes\(\) expects Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantAttributeValueInterface, Sylius\\Component\\Attribute\\Model\\AttributeValueInterface given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php

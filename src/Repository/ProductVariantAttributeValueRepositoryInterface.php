@@ -10,7 +10,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 interface ProductVariantAttributeValueRepositoryInterface extends RepositoryInterface
 {
     /**
-     * @return array|ProductAttributeValueInterface[]
+     * @return ProductAttributeValueInterface[]
      */
     public function findByJsonChoiceKey(string $choiceKey): array;
 }

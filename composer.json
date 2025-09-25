@@ -7,12 +7,14 @@
     "scripts": {
         "test": "vendor/bin/phpspec run",
         "analyse": "vendor/bin/phpstan analyse",
+        "analyse:baseline": "vendor/bin/phpstan analyse --generate-baseline",
         "lint": "vendor/bin/ecs",
         "lint:fix": "vendor/bin/ecs --fix"
     },
     "scripts-descriptions": {
         "test": "Run phpspec tests",
         "analyse": "Run PHPStan",
+        "analyse:baseline": "Generate PHPStan baseline",
         "lint": "Run ECS linter",
         "lint:fix": "Fix ECS linter errors"
     },
@@ -63,7 +65,9 @@
             "/.gitattributes",
             "/.gitignore",
             "/ecs.php",
-            "/phpspec.yml"
+            "/phpspec.yml",
+            "/phpstan-baseline.neon",
+            "/phpstan.neon"
         ]
     }
 }
