@@ -45,6 +45,14 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
         $config = $this->processConfiguration(new Configuration(), $container->getExtensionConfig($this->getAlias()));
 
         $this->prependAttribute($container, $config);
+        if (!$container->hasExtension('doctrine_migrations')) {
+            return;
+        }
+        $container->prependExtensionConfig('doctrine_migrations', [
+            'migrations_paths' => [
+                'Umanit\\SyliusProductVariantAttributePlugin\\Migrations' => '@UmanitSyliusProductVariantAttributePlugin/Migrations'
+            ]
+        ]);
     }
 
     private function prependAttribute(ContainerBuilder $container, array $config): void
