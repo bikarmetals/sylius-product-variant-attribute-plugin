@@ -84,7 +84,6 @@ class ProductVariant extends BaseProductVariant implements ProductVariantInterfa
 Finally, don't forget to update your database!
 
 ```bash
-php bin/console doctrine:migrations:diff
 php bin/console doctrine:migrations:migrate
 ```
 
