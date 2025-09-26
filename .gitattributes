@@ -2,7 +2,6 @@
 /bin/                  export-ignore
 /cypress/              export-ignore
 /etc/                  export-ignore
-/node_modules/         export-ignore
 /spec/                 export-ignore
 /tests/                export-ignore
 /.editorconfig         export-ignore
@@ -10,6 +9,7 @@
 /.gitignore            export-ignore
 /cypress.config.js     export-ignore
 /ecs.php               export-ignore
+/node_modules          export-ignore
 /phpspec.yml           export-ignore
 /phpstan-baseline.neon export-ignore
 /phpstan.neon          export-ignore
