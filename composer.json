@@ -57,6 +57,7 @@
     "archive": {
         "exclude": [
             "/.ddev/",
+            "/.git/",
             "/.vscode/",
             "/bin/",
             "/etc/",
@@ -64,6 +65,7 @@
             "/spec/",
             "/tests/",
             "/vendor/",
+            "/.editorconfig",
             "/.gitattributes",
             "/.gitignore",
             "/ecs.php",
