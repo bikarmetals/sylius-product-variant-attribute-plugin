@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Umanit\SyliusProductVariantAttributePlugin\Entity;
 
 use Sylius\Component\Attribute\Model\AttributeValue as BaseAttributeValue;
-use Sylius\Component\Product\Model\ProductVariantInterface;
 use Webmozart\Assert\Assert;
 
 class ProductVariantAttributeValue extends BaseAttributeValue implements ProductVariantAttributeValueInterface

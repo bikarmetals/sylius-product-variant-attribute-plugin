@@ -23,6 +23,9 @@ use Umanit\SyliusProductVariantAttributePlugin\Repository\ProductVariantAttribut
 
 final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourceExtension implements PrependExtensionInterface
 {
+    /**
+     * @param array<string,mixed> $configs
+     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $configs);
@@ -42,6 +45,7 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
 
     public function prepend(ContainerBuilder $container): void
     {
+        /** @var array<string,mixed> */
         $config = $this->processConfiguration(new Configuration(), $container->getExtensionConfig($this->getAlias()));
 
         $this->prependAttribute($container, $config);
@@ -55,6 +59,9 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
         ]);
     }
 
+    /**
+     * @param array<string,mixed> $config
+     */
     private function prependAttribute(ContainerBuilder $container, array $config): void
     {
         if (!$container->hasExtension('sylius_attribute')) {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Umanit\SyliusProductVariantAttributePlugin\Controller;
 
 use Sylius\Bundle\ProductBundle\Controller\ProductAttributeController;
+use Sylius\Component\Attribute\Model\AttributeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -26,6 +27,7 @@ class ProductVariantAttributeController extends ProductAttributeController
 
     public function renderAttributeValueFormsAction(Request $request): Response
     {
+        /** @var string */
         $template = $request->attributes->get('template', '@SyliusAttribute/attributeValueForms.html.twig');
 
         $form = $this->get('form.factory')->create(ProductVariantAttributeChoiceType::class, null, [
@@ -34,11 +36,13 @@ class ProductVariantAttributeController extends ProductAttributeController
         ;
         $form->handleRequest($request);
 
+        /** @var ?AttributeInterface[] */
         $attributes = $form->getData();
         if (null === $attributes) {
             throw new BadRequestHttpException();
         }
 
+        /** @var string[] */
         $localeCodes = $this->get('sylius.translation_locale_provider')->getDefinedLocalesCodes();
 
         $forms = [];

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Umanit\SyliusProductVariantAttributePlugin\Form\EventSubscriber;
 
+use Sylius\Component\Attribute\Model\AttributeInterface;
 use Sylius\Component\Attribute\Model\AttributeValueInterface;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Translation\Provider\TranslationLocaleProviderInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeValueInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantInterface;
 use Webmozart\Assert\Assert;
@@ -77,12 +77,12 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
 
     private function resolveLocalizedAttributes(
         ProductVariantInterface $productVariant,
-        ProductVariantAttributeValueInterface $attribute,
+        AttributeValueInterface $attribute,
     ): void {
         $localeCodes = $this->localeProvider->getDefinedLocalesCodes();
 
         foreach ($localeCodes as $localeCode) {
-            if (!$productVariant->hasAttributeByCodeAndLocale($attribute->getCode(), $localeCode)) {
+            if (!$productVariant->hasAttributeByCodeAndLocale($attribute->getCode() ?? '', $localeCode)) {
                 $attributeValue = $this->createProductVariantAttributeValue($attribute->getAttribute(), $localeCode);
                 $productVariant->addAttribute($attributeValue);
             }
@@ -90,7 +90,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
     }
 
     private function createProductVariantAttributeValue(
-        ProductVariantAttributeInterface $attribute,
+        ?AttributeInterface $attribute,
         string $localeCode,
     ): ProductVariantAttributeValueInterface {
         /** @var ProductVariantAttributeValueInterface $attributeValue */
