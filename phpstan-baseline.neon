@@ -97,12 +97,6 @@ parameters:
 			path: src/DependencyInjection/UmanitSyliusProductVariantAttributeExtension.php
 
 		-
-			message: '#^Trait Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantTrait is used zero times and is not analysed\.$#'
-			identifier: trait.unused
-			count: 1
-			path: src/Entity/ProductVariantTrait.php
-
-		-
 			message: '#^Parameter \#1 \$array of function array_diff expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -128,5 +122,11 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
+
+		-
+			message: '#^Cannot call method getCode\(\) on Sylius\\Component\\Attribute\\Model\\AttributeInterface\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Application/src/Entity/Product/ProductVariant.php
 
 

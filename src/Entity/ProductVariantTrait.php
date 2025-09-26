@@ -11,7 +11,7 @@ use Webmozart\Assert\Assert;
 
 trait ProductVariantTrait
 {
-    /** @var Collection|AttributeValueInterface[] */
+    /** @var Collection<int,AttributeValueInterface> */
     protected $attributes;
 
     public function __construct()
@@ -101,36 +101,39 @@ trait ProductVariantTrait
         }
 
         $attributes = $this->attributes->filter(
-            function (ProductVariantAttributeValueInterface $attribute) use ($baseLocaleCode) {
+            function (AttributeValueInterface $attribute) use ($baseLocaleCode) {
                 return $baseLocaleCode === $attribute->getLocaleCode() || null === $attribute->getLocaleCode();
             },
         );
 
         $attributesWithFallback = [];
         foreach ($attributes as $attribute) {
-            $attributesWithFallback[] = $this->getAttributeInDifferentLocale($attribute, $localeCode, $fallbackLocaleCode);
+            $fallback = $this->getAttributeInDifferentLocale($attribute, $localeCode, $fallbackLocaleCode);
+            if ($fallback) {
+                $attributesWithFallback[] = $fallback;
+            }
         }
 
         return new ArrayCollection($attributesWithFallback);
     }
 
     protected function getAttributeInDifferentLocale(
-        ProductVariantAttributeValueInterface $attributeValue,
+        AttributeValueInterface $attributeValue,
         string $localeCode,
         ?string $fallbackLocaleCode = null,
-    ): AttributeValueInterface {
-        if (!$this->hasNotEmptyAttributeByCodeAndLocale($attributeValue->getCode(), $localeCode)) {
+    ): ?AttributeValueInterface {
+        if (!$this->hasNotEmptyAttributeByCodeAndLocale($attributeValue->getCode() ?? '', $localeCode)) {
             if (
                 null !== $fallbackLocaleCode &&
-                $this->hasNotEmptyAttributeByCodeAndLocale($attributeValue->getCode(), $fallbackLocaleCode)
+                $this->hasNotEmptyAttributeByCodeAndLocale($attributeValue->getCode() ?? '', $fallbackLocaleCode)
             ) {
-                return $this->getAttributeByCodeAndLocale($attributeValue->getCode(), $fallbackLocaleCode);
+                return $this->getAttributeByCodeAndLocale($attributeValue->getCode() ?? '', $fallbackLocaleCode);
             }
 
             return $attributeValue;
         }
 
-        return $this->getAttributeByCodeAndLocale($attributeValue->getCode(), $localeCode);
+        return $this->getAttributeByCodeAndLocale($attributeValue->getCode() ?? '', $localeCode);
     }
 
     protected function hasNotEmptyAttributeByCodeAndLocale(string $attributeCode, string $localeCode): bool
