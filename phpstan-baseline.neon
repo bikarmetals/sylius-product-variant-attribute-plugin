@@ -151,24 +151,6 @@ parameters:
 			path: src/Entity/ProductVariantTrait.php
 
 		-
-			message: '''
-				#^Call to method getEntity\(\) of deprecated class Doctrine\\ORM\\Event\\LifecycleEventArgs\:
-				This class will be removed in ORM 3\.0\. Use one of the dedicated classes instead\.$#
-			'''
-			identifier: method.deprecatedClass
-			count: 1
-			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
-
-		-
-			message: '''
-				#^Call to method getEntityManager\(\) of deprecated class Doctrine\\ORM\\Event\\LifecycleEventArgs\:
-				This class will be removed in ORM 3\.0\. Use one of the dedicated classes instead\.$#
-			'''
-			identifier: method.deprecatedClass
-			count: 1
-			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
-
-		-
 			message: '#^Cannot access offset ''choices'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -236,3 +218,4 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
+

@@ -30,8 +30,8 @@ final class SelectProductVariantAttributeChoiceRemoveListenerSpec extends Object
         ProductAttributeInterface $productAttribute,
         ProductVariantAttributeValueInterface $productVariantAttributeValue
     ): void {
-        $event->getEntity()->willReturn($productAttribute);
-        $event->getEntityManager()->willReturn($entityManager);
+        $event->getObject()->willReturn($productAttribute);
+        $event->getObjectManager()->willReturn($entityManager);
 
         $productAttribute->getType()->willReturn(SelectAttributeType::TYPE);
 

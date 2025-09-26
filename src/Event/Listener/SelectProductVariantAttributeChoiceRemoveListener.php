@@ -23,7 +23,7 @@ final class SelectProductVariantAttributeChoiceRemoveListener
 
     public function postUpdate(LifecycleEventArgs $event): void
     {
-        $productAttribute = $event->getEntity();
+        $productAttribute = $event->getObject();
 
         if (!$productAttribute instanceof ProductAttributeInterface) {
             return;
@@ -33,9 +33,9 @@ final class SelectProductVariantAttributeChoiceRemoveListener
             return;
         }
 
-        $entityManager = $event->getEntityManager();
+        $objectManager = $event->getObjectManager();
 
-        $unitOfWork = $entityManager->getUnitOfWork();
+        $unitOfWork = $objectManager->getUnitOfWork();
         $changeSet = $unitOfWork->getEntityChangeSet($productAttribute);
 
         $oldChoices = $changeSet['configuration'][0]['choices'] ?? [];
@@ -44,7 +44,7 @@ final class SelectProductVariantAttributeChoiceRemoveListener
         $removedChoices = array_diff_key($oldChoices, $newChoices);
 
         if (!empty($removedChoices)) {
-            $this->removeValues($entityManager, array_keys($removedChoices));
+            $this->removeValues($objectManager, array_keys($removedChoices));
         }
     }
 
