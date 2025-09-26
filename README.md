@@ -103,3 +103,25 @@ defining the following configuration:
 umanit_sylius_product_variant_attribute_plugin:
     rename_product_attribute_menu_entry: false
 ```
+
+## Development
+1. Install [DDEV](https://ddev.com/)
+2. Run `ddev start` to launch the project
+3. Setup the project. Run `ddev ssh` to enter the container and run the following actions:
+```bash
+/var/www/html $ php bin/create_node_symlink.php
+/var/www/html $ composer install
+/var/www/html $ cd tests/Application
+# You must create an admin user with email "admin@example.com" and password "qwerty"
+/var/www/html/tests/Application $ bin/console sylius:install --fixture-suite=default
+/var/www/html/tests/Application $ bin/console assets:install
+/var/www/html/tests/Application $ yarn install
+/var/www/html/tests/Application $ yarn build
+```
+4. Exit the container and run the tests:
+```bash
+$ ddev composer test # Run phpspec tests
+$ export DISPLAY=:0  # Important before the E2E tests
+$ xhost +            # Important before the E2E tests
+$ ddev cypress-run   # Run Cypress E2E tests
+```
