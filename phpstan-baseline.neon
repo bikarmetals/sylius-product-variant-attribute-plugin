@@ -31,12 +31,6 @@ parameters:
 			path: src/Controller/ProductVariantAttributeController.php
 
 		-
-			message: '#^Parameter \#1 \$view of method Sylius\\Bundle\\ResourceBundle\\Controller\\ResourceController\:\:render\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controller/ProductVariantAttributeController.php
-
-		-
 			message: '#^Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition\:\:children\(\)\.$#'
 			identifier: method.notFound
 			count: 1
@@ -110,23 +104,5 @@ parameters:
 			identifier: parameter.deprecatedClass
 			count: 1
 			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
-
-		-
-			message: '#^Property Umanit\\SyliusProductVariantAttributePlugin\\Event\\Listener\\SelectProductVariantAttributeChoiceRemoveListener\:\:\$productVariantAttributeValueClass \(class\-string\) does not accept string\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Event/Listener/SelectProductVariantAttributeChoiceRemoveListener.php
-
-		-
-			message: '#^Parameter \#1 \$p of method Doctrine\\Common\\Collections\\Collection\<\(int\|string\),Sylius\\Component\\Attribute\\Model\\AttributeValueInterface\>\:\:filter\(\) expects Closure\(Sylius\\Component\\Attribute\\Model\\AttributeValueInterface\)\: bool, Closure\(Umanit\\SyliusProductVariantAttributePlugin\\Entity\\ProductVariantAttributeValueInterface\)\: bool given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Form/EventSubscriber/BuildAttributesFormSubscriber.php
-
-		-
-			message: '#^Cannot call method getCode\(\) on Sylius\\Component\\Attribute\\Model\\AttributeInterface\|null\.$#'
-			identifier: method.nonObject
-			count: 2
-			path: tests/Application/src/Entity/Product/ProductVariant.php
 
 

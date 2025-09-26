@@ -16,6 +16,9 @@ final class SelectProductVariantAttributeChoiceRemoveListener
     /** @var class-string */
     private $productVariantAttributeValueClass;
 
+    /**
+     * @param class-string $productVariantAttributeValueClass
+     */
     public function __construct(string $productVariantAttributeValueClass)
     {
         $this->productVariantAttributeValueClass = $productVariantAttributeValueClass;

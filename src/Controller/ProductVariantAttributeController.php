@@ -15,6 +15,7 @@ class ProductVariantAttributeController extends ProductAttributeController
 {
     public function renderAttributesAction(Request $request): Response
     {
+        /** @var string */
         $template = $request->attributes->get('template', '@SyliusAttribute/attributeChoice.html.twig');
 
         $form = $this->get('form.factory')->create(ProductVariantAttributeChoiceType::class, null, [

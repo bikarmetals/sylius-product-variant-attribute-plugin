@@ -63,7 +63,7 @@ trait ProductVariantTrait
 
         foreach ($this->attributes as $attribute) {
             if (
-                $attributeCode === $attribute->getAttribute()->getCode() &&
+                $attributeCode === $attribute->getAttribute()?->getCode() &&
                 ($localeCode === $attribute->getLocaleCode() || null === $attribute->getLocaleCode())
             ) {
                 return true;
@@ -81,7 +81,7 @@ trait ProductVariantTrait
 
         foreach ($this->attributes as $attribute) {
             if (
-                $attributeCode === $attribute->getAttribute()->getCode() &&
+                $attributeCode === $attribute->getAttribute()?->getCode() &&
                 ($localeCode === $attribute->getLocaleCode() || null === $attribute->getLocaleCode())) {
                 return $attribute;
             }

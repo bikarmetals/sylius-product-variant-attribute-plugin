@@ -50,7 +50,7 @@ final class BuildAttributesFormSubscriber implements EventSubscriberInterface
         $attributes = $productVariant
             ->getAttributes()
             ->filter(
-                static function (ProductVariantAttributeValueInterface $attribute) use ($defaultLocaleCode) {
+                static function (AttributeValueInterface $attribute) use ($defaultLocaleCode) {
                     return $attribute->getLocaleCode() === $defaultLocaleCode;
                 },
             )
