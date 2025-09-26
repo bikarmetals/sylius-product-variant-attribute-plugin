@@ -4,6 +4,30 @@
     "keywords": ["sylius", "sylius-plugin"],
     "description": "Plugin for Sylius to add attributes on product variants.",
     "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "sylius/sylius": "~1.12.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "phpspec/phpspec": "^8.0",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "sylius-labs/coding-standard": "^4.4",
+        "symfony/debug-bundle": "^6.0",
+        "symfony/dotenv": "^6.0",
+        "symfony/web-profiler-bundle": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tests\\Umanit\\SyliusProductVariantAttributePlugin\\": ["tests/", "tests/Application/src"],
+            "Umanit\\SyliusProductVariantAttributePlugin\\": "src/",
+            "Umanit\\SyliusProductVariantAttributePlugin\\spec\\": "spec/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": ["tests/Application/Kernel.php"]
+    },
     "scripts": {
         "test": "vendor/bin/phpspec run",
         "analyse": "vendor/bin/phpstan analyse",
@@ -18,20 +42,6 @@
         "lint": "Run ECS linter",
         "lint:fix": "Fix ECS linter errors"
     },
-    "require": {
-        "php": "^8.0",
-        "sylius/sylius": "~1.11.0"
-    },
-    "require-dev": {
-        "mockery/mockery": "^1.6",
-        "phpspec/phpspec": "^8.0",
-        "phpstan/phpstan": "^2.1",
-        "phpstan/phpstan-deprecation-rules": "^2.0",
-        "sylius-labs/coding-standard": "^4.4",
-        "symfony/debug-bundle": "^5.4",
-        "symfony/dotenv": "^5.4",
-        "symfony/web-profiler-bundle": "^5.4"
-    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
@@ -43,16 +53,6 @@
         "branch-alias": {
             "dev-master": "1.10-dev"
         }
-    },
-    "autoload": {
-        "psr-4": {
-            "Tests\\Umanit\\SyliusProductVariantAttributePlugin\\": ["tests/", "tests/Application/src"],
-            "Umanit\\SyliusProductVariantAttributePlugin\\": "src/",
-            "Umanit\\SyliusProductVariantAttributePlugin\\spec\\": "spec/"
-        }
-    },
-    "autoload-dev": {
-        "classmap": ["tests/Application/Kernel.php"]
     },
     "archive": {
         "exclude": [

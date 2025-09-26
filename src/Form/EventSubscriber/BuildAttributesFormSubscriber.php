@@ -17,14 +17,14 @@ use Webmozart\Assert\Assert;
 
 final class BuildAttributesFormSubscriber implements EventSubscriberInterface
 {
-    /** @var FactoryInterface<ProductVariantAttributeValueInterface> */
+    /** @var FactoryInterface */
     private $attributeValueFactory;
 
     /** @var TranslationLocaleProviderInterface */
     private $localeProvider;
 
     /**
-     * @param FactoryInterface<ProductVariantAttributeValueInterface> $attributeValueFactory
+     * @param FactoryInterface $attributeValueFactory
      */
     public function __construct(
         FactoryInterface $attributeValueFactory,

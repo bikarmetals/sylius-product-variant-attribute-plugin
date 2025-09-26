@@ -20,7 +20,7 @@ umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute_c
     path: /product-variant-attributes/{type}/new
     methods: [GET, POST]
     defaults:
-        _controller: sylius.controller.product_variant_attribute:createAction
+        _controller: sylius.controller.product_variant_attribute::createAction
         _sylius:
             section: admin
             factory:
@@ -43,19 +43,19 @@ umanit_sylius_product_variant_attribute_plugin_admin_get_attribute_types:
     path: /variant-attribute-types
     methods: [GET]
     defaults:
-        _controller: sylius.controller.product_variant_attribute:getAttributeTypesAction
+        _controller: sylius.controller.product_variant_attribute::getAttributeTypesAction
         template: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariantAttribute/Types/attributeTypes.html.twig"
 
 umanit_sylius_product_variant_attribute_plugin_admin_get_product_variant_attributes:
     path: /variant-attributes
     methods: [GET]
     defaults:
-        _controller: sylius.controller.product_variant_attribute:renderAttributesAction
+        _controller: sylius.controller.product_variant_attribute::renderAttributesAction
         template: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariant/Attribute/attributeChoice.html.twig"
 
 umanit_sylius_product_variant_attribute_plugin_admin_render_variant_attribute_forms:
     path: /variant-attribute-forms
     methods: [GET]
     defaults:
-        _controller: sylius.controller.product_variant_attribute:renderAttributeValueFormsAction
+        _controller: sylius.controller.product_variant_attribute::renderAttributeValueFormsAction
         template: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariant/Attribute/attributeValues.html.twig"

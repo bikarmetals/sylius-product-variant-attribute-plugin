@@ -10,20 +10,19 @@ use Sylius\Component\Resource\Translation\Provider\TranslationLocaleProviderInte
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeValueInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Form\EventSubscriber\BuildAttributesFormSubscriber;
 use Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeValueType;
 
 final class ProductVariantTypeExtension extends AbstractTypeExtension
 {
-    /** @var FactoryInterface<ProductVariantAttributeValueInterface> */
+    /** @var FactoryInterface */
     private $attributeValueFactory;
 
     /** @var TranslationLocaleProviderInterface */
     private $localeProvider;
 
     /**
-     * @param FactoryInterface<ProductVariantAttributeValueInterface> $attributeValueFactory
+     * @param FactoryInterface $attributeValueFactory
      */
     public function __construct(
         FactoryInterface $attributeValueFactory,
