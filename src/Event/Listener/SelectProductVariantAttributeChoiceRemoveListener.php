@@ -7,7 +7,7 @@ namespace Umanit\SyliusProductVariantAttributePlugin\Event\Listener;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\Persistence\ObjectManager;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
-use Sylius\Component\Product\Model\ProductAttributeInterface;
+use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeValueInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Repository\ProductVariantAttributeValueRepositoryInterface;
 
@@ -26,27 +26,23 @@ final class SelectProductVariantAttributeChoiceRemoveListener
 
     public function postUpdate(LifecycleEventArgs $event): void
     {
-        $productAttribute = $event->getObject();
+        $productAttributeVariant = $event->getObject();
 
-        if (!$productAttribute instanceof ProductAttributeInterface) {
+        if (!$productAttributeVariant instanceof ProductVariantAttributeInterface) {
             return;
         }
 
-        if ($productAttribute->getType() !== SelectAttributeType::TYPE) {
+        if ($productAttributeVariant->getType() !== SelectAttributeType::TYPE) {
             return;
         }
 
         $objectManager = $event->getObjectManager();
 
         $unitOfWork = $objectManager->getUnitOfWork();
-        $changeSet = $unitOfWork->getEntityChangeSet($productAttribute);
+        $changeSet = $unitOfWork->getEntityChangeSet($productAttributeVariant);
 
-        // $oldChoices = $changeSet['configuration'][0]['choices'] ?? [];
-        // $newChoices = $changeSet['configuration'][1]['choices'] ?? [];
-        /** @var mixed[] */
-        $oldChoices = self::getByPath($changeSet, 'configuration', 0, 'choices') ?? [];
-        /** @var mixed[] */
-        $newChoices = self::getByPath($changeSet, 'configuration', 1, 'choices') ?? [];
+        $oldChoices = $changeSet['configuration'][0]['choices'] ?? [];
+        $newChoices = $changeSet['configuration'][1]['choices'] ?? [];
 
         $removedChoices = array_diff_key($oldChoices, $newChoices);
 
@@ -81,21 +77,5 @@ final class SelectProductVariantAttributeChoiceRemoveListener
         }
 
         $entityManager->flush();
-    }
-
-    /**
-     * @param mixed[] $array
-     */
-    private static function getByPath(array $array, int | string ...$path): mixed
-    {
-        $result = $array;
-        foreach ($path as $element) {
-            if (is_array($result) && isset($result[$element])) {
-                $result = $result[$element];
-            } else {
-                return null;
-            }
-        }
-        return $result;
     }
 }

@@ -11,8 +11,8 @@ use Mockery;
 use Mockery\MockInterface;
 use PhpSpec\ObjectBehavior;
 use Sylius\Component\Attribute\AttributeType\SelectAttributeType;
-use Sylius\Component\Product\Model\ProductAttributeInterface;
 use Sylius\Component\Product\Repository\ProductAttributeValueRepositoryInterface;
+use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeValue;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeValueInterface;
 
@@ -27,17 +27,17 @@ final class SelectProductVariantAttributeChoiceRemoveListenerSpec extends Object
         LifecycleEventArgs $event,
         EntityManagerInterface $entityManager,
         ProductAttributeValueRepositoryInterface $productVariantAttributeValueRepository,
-        ProductAttributeInterface $productAttribute,
+        ProductVariantAttributeInterface $productVariantAttribute,
         ProductVariantAttributeValueInterface $productVariantAttributeValue
     ): void {
-        $event->getObject()->willReturn($productAttribute);
+        $event->getObject()->willReturn($productVariantAttribute);
         $event->getObjectManager()->willReturn($entityManager);
 
-        $productAttribute->getType()->willReturn(SelectAttributeType::TYPE);
+        $productVariantAttribute->getType()->willReturn(SelectAttributeType::TYPE);
 
         /** @var UnitOfWork|MockInterface $unitOfWork */
         $unitOfWork = Mockery::mock(UnitOfWork::class);
-        $unitOfWork->shouldReceive('getEntityChangeSet')->withArgs([$productAttribute->getWrappedObject()])->andReturn([
+        $unitOfWork->shouldReceive('getEntityChangeSet')->withArgs([$productVariantAttribute->getWrappedObject()])->andReturn([
             'configuration' => [
                 [
                     'choices' => [
