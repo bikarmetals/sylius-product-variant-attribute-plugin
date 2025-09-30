@@ -5,8 +5,8 @@
     "description": "Plugin for Sylius to add attributes on product variants.",
     "license": "MIT",
     "require": {
-        "php": "^8.0",
-        "sylius/sylius": "~1.12.0"
+        "php": "^8.1",
+        "sylius/sylius": "~1.13.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.6",
@@ -14,9 +14,10 @@
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "sylius-labs/coding-standard": "^4.4",
-        "symfony/debug-bundle": "^6.0",
-        "symfony/dotenv": "^6.0",
-        "symfony/web-profiler-bundle": "^6.0"
+        "symfony/debug-bundle": "^6.4",
+        "symfony/dotenv": "^6.4",
+        "symfony/flex": "^2.4",
+        "symfony/web-profiler-bundle": "^6.4"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +34,12 @@
         "analyse": "vendor/bin/phpstan analyse",
         "analyse:baseline": "vendor/bin/phpstan analyse --generate-baseline",
         "lint": "vendor/bin/ecs",
-        "lint:fix": "vendor/bin/ecs --fix"
+        "lint:fix": "vendor/bin/ecs --fix",
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
+        }
     },
     "scripts-descriptions": {
         "test": "Run phpspec tests",
@@ -42,16 +48,22 @@
         "lint": "Run ECS linter",
         "lint:fix": "Fix ECS linter errors"
     },
+    "conflict": {
+        "symfony/framework-bundle": "6.2.8"
+    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "symfony/thanks": true
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "symfony/flex": true
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.10-dev"
+        },
+        "symfony": {
+            "require": "^6.4"
         }
     },
     "archive": {

@@ -13,6 +13,8 @@ doctrine:
 
         url: '%env(resolve:DATABASE_URL)%'
     orm:
+        resolve_target_entities:
+            Sylius\Component\Attribute\Model\AttributeInterface: Sylius\Component\Attribute\Model\Attribute
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
