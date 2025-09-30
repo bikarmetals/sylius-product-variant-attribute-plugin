@@ -1177,7 +1177,7 @@
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.27.8.tgz#6667fac16c436b5434a387a34dedb013198f6e6e"
   integrity sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==
 
-"@sylius-ui/frontend@^1.0":
+"@sylius-ui/frontend@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@sylius-ui/frontend/-/frontend-1.0.3.tgz#f86eb37bf95adb323f41792432d63ca23a114290"
   integrity sha512-ecdXD/i6Q5uId/0xN0YkIDDBxppJbrryHDzEhFCo0puHPLup/w6mi9bnjqy0N83yH90fS3IEYHrblJr64H7BAA==
