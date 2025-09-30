@@ -111,8 +111,7 @@ umanit_sylius_product_variant_attribute_plugin:
 /var/www/html $ php bin/create_node_symlink.php
 /var/www/html $ composer install
 /var/www/html $ cd tests/Application
-# You must create an admin user with email "admin@example.com" and password "qwerty"
-/var/www/html/tests/Application $ bin/console sylius:install --fixture-suite=default
+/var/www/html/tests/Application $ bin/console sylius:install --fixture-suite=default --no-interaction
 /var/www/html/tests/Application $ bin/console assets:install public
 /var/www/html/tests/Application $ yarn install
 /var/www/html/tests/Application $ yarn build
