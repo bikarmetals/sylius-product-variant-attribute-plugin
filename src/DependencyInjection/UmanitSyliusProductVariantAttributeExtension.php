@@ -19,6 +19,7 @@ use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantAttributeVal
 use Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeTranslationType;
 use Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeType;
 use Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeValueType;
+use Umanit\SyliusProductVariantAttributePlugin\Repository\ProductVariantAttributeTranslationRepository;
 use Umanit\SyliusProductVariantAttributePlugin\Repository\ProductVariantAttributeValueRepository;
 
 final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourceExtension implements PrependExtensionInterface
@@ -84,6 +85,7 @@ final class UmanitSyliusProductVariantAttributeExtension extends AbstractResourc
                                 'model' => ProductVariantAttributeTranslation::class,
                                 'interface' => ProductVariantAttributeTranslationInterface::class,
                                 'form' => ProductVariantAttributeTranslationType::class,
+                                'repository' => ProductVariantAttributeTranslationRepository::class,
                             ],
                         ],
                     ],

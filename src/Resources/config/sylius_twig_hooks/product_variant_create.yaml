@@ -1,0 +1,6 @@
+# TODO:
+sylius_twig_hooks:
+    hooks:
+        sylius_admin.product_variant.create.content.form.side_navigation:
+            attributes:
+                template: '@UmanitSyliusProductVariantAttributePlugin/product_variant/form/side_navigation/attributes.html.twig'

@@ -7,6 +7,36 @@ parameters:
         - sylius
 
 services:
+    Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeAutocompleteType:
+        arguments:
+            - '%sylius.model.product_variant_attribute.class%'
+        tags:
+            - { name: form.type }
+            - { name: ux.entity_autocomplete_field }
+
+    Umanit\SyliusProductVariantAttributePlugin\Twig\Component\ProductVariantFormComponent:
+        arguments:
+            - '@sylius.repository.product_variant'
+            - '@form.factory'
+            - '%sylius.model.product_variant.class%'
+            - Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantType
+            - '@sylius.factory.product_variant'
+            - '@sylius.repository.product'
+            - '@sylius.repository.product_variant_attribute'
+        tags:
+            - { name: sylius.live_component.admin, key: umanit:product_variant:form }
+        calls:
+            - setLiveResponder: ['@ux.live_component.live_responder']
+
+    Umanit\SyliusProductVariantAttributePlugin\Twig\Component\ProductVariantAttributeFormComponent:
+        arguments:
+            - '@sylius.repository.product_variant_attribute'
+            - '@form.factory'
+            - '%sylius.model.product_variant_attribute.class%'
+            - Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeType
+        tags:
+            - { name: sylius.live_component.admin, key: 'sylius_admin:product_variant_attribute:form' } # TODO: Rename to umanit:...
+
     umanit_sylius_product_variant_attribute_plugin.event.listener.admin_product_variant_menu:
         class: Umanit\SyliusProductVariantAttributePlugin\Event\Listener\AdminProductVariantMenuListener
         arguments:
@@ -14,7 +44,6 @@ services:
             - '%umanit_sylius_product_variant_attribute_plugin.rename_product_attribute_menu_entry%'
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addAttributesMainMenu }
-            - { name: kernel.event_listener, event: sylius.menu.admin.product_variant.form, method: addAttributesFormMenu }
 
     umanit_sylius_product_variant_attribute_plugin.form.type.product_variant_attribute_type:
         class: Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeType
@@ -35,6 +64,7 @@ services:
             - '@sylius.repository.product_variant_attribute'
             - '@sylius.repository.locale'
             - '@sylius.form_registry.attribute_type'
+            - '@sylius.form.data_transformer.locale_to_code'
         tags:
             - { name: form.type }
 
@@ -69,6 +99,7 @@ services:
         tags:
             - { name: doctrine.event_subscriber }
 
+    # TODO: Check that this listener didn't fail
     umanit_sylius_product_variant_attribute_plugin.listener.select_product_variant_attribute_choice_remove:
         class: Umanit\SyliusProductVariantAttributePlugin\Event\Listener\SelectProductVariantAttributeChoiceRemoveListener
         arguments:

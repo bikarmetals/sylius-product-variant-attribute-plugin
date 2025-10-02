@@ -2,18 +2,14 @@ umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute:
     resource: |
         alias: sylius.product_variant_attribute
         section: admin
-        templates: "@SyliusAdmin\\Crud"
+        templates: "@SyliusAdmin\\shared\\crud"
         except: ['show', 'create']
         redirect: update
         grid: umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute
+        form:
+            type: Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeType
         permission: true
-        vars:
-            all:
-                subheader: umanit_sylius_product_variant_attribute_plugin.ui.manage_attributes_of_your_products
-                templates:
-                    form: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariantAttribute/_form.html.twig"
-            index:
-                icon: cubes
+
     type: sylius.resource
 
 umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute_create:
@@ -27,24 +23,19 @@ umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute_c
                 method: createTyped
                 arguments:
                     type: $type
-            template: "@SyliusAdmin/Crud/create.html.twig"
+            form:
+                type: Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeType
+            template: "@SyliusAdmin/shared/crud/create.html.twig"
             redirect: sylius_admin_product_variant_attribute_update
             permission: true
             vars:
                 subheader: umanit_sylius_product_variant_attribute_plugin.ui.manage_attributes_of_your_products
-                templates:
-                    form: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariantAttribute/_form.html.twig"
                 route:
-                    name: umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute_create
                     parameters:
                         type: $type
 
-umanit_sylius_product_variant_attribute_plugin_admin_get_attribute_types:
-    path: /variant-attribute-types
-    methods: [GET]
-    defaults:
-        _controller: sylius.controller.product_variant_attribute::getAttributeTypesAction
-        template: "@UmanitSyliusProductVariantAttributePlugin/Admin/ProductVariantAttribute/Types/attributeTypes.html.twig"
+sylius_admin_product_variant_attribute_create:
+    alias: umanit_sylius_product_variant_attribute_plugin_admin_product_variant_attribute_create
 
 umanit_sylius_product_variant_attribute_plugin_admin_get_product_variant_attributes:
     path: /variant-attributes

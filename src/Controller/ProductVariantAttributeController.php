@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace Umanit\SyliusProductVariantAttributePlugin\Controller;
 
-use Sylius\Bundle\ProductBundle\Controller\ProductAttributeController;
+use Sylius\Bundle\ResourceBundle\Controller\ResourceController;
 use Sylius\Component\Attribute\Model\AttributeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Umanit\SyliusProductVariantAttributePlugin\Form\Type\ProductVariantAttributeChoiceType;
 
-class ProductVariantAttributeController extends ProductAttributeController
+// TODO: Check if this controller can be deleted
+class ProductVariantAttributeController extends ResourceController
 {
     public function renderAttributesAction(Request $request): Response
     {
         /** @var string */
-        $template = $request->attributes->get('template', '@SyliusAttribute/attributeChoice.html.twig');
+        $template = $request->attributes->get('template');
 
         $form = $this->get('form.factory')->create(ProductVariantAttributeChoiceType::class, null, [
             'multiple' => true,
@@ -29,7 +30,7 @@ class ProductVariantAttributeController extends ProductAttributeController
     public function renderAttributeValueFormsAction(Request $request): Response
     {
         /** @var string */
-        $template = $request->attributes->get('template', '@SyliusAttribute/attributeValueForms.html.twig');
+        $template = $request->attributes->get('template');
 
         $form = $this->get('form.factory')->create(ProductVariantAttributeChoiceType::class, null, [
             'multiple' => true,

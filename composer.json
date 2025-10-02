@@ -5,18 +5,18 @@
     "description": "Plugin for Sylius to add attributes on product variants.",
     "license": "MIT",
     "require": {
-        "php": "^8.1",
-        "sylius/sylius": "~1.14.0"
+        "php": "^8.2",
+        "sylius/sylius": "~2.0.0"
     },
     "require-dev": {
         "mockery/mockery": "^1.6",
         "phpspec/phpspec": "^8.0",
-        "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan": "^2.1",
         "sylius-labs/coding-standard": "^4.4",
-        "symfony/debug-bundle": "^6.4",
-        "symfony/dotenv": "^6.4",
-        "symfony/web-profiler-bundle": "^6.4"
+        "symfony/debug-bundle": "^7.1",
+        "symfony/dotenv": "^7.1",
+        "symfony/web-profiler-bundle": "^7.1"
     },
     "autoload": {
         "psr-4": {
@@ -42,19 +42,14 @@
         "lint": "Run ECS linter",
         "lint:fix": "Fix ECS linter errors"
     },
-    "conflict": {
-        "symfony/framework-bundle": "6.2.8"
-    },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": false
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "php-http/discovery": false
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.10-dev"
-        },
         "symfony": {
             "require": "^6.4"
         }

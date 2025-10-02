@@ -45,8 +45,6 @@ umanit_sylius_product_variant_attribute_plugin:
 Update your `ProductVariant` entity by implementing the `ProductVariantInterface` and using the `ProductVariantTrait`
 
 ```php
-<?php
-
 declare(strict_types=1);
 
 namespace App\Entity\Product;
@@ -57,22 +55,11 @@ use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantInterface;
 use Umanit\SyliusProductVariantAttributePlugin\Entity\ProductVariantTrait;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_product_variant")
- */
+#[ORM\Entity]
+#[ORM\Table("sylius_product_variant")]
 class ProductVariant extends BaseProductVariant implements ProductVariantInterface
 {
-    use ProductVariantTrait {
-        __construct as attributesConstruct;
-    }
-
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->attributesConstruct();
-    }
+    use ProductVariantTrait;
 
     protected function createTranslation(): ProductVariantTranslationInterface
     {

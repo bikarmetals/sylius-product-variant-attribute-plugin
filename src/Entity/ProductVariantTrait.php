@@ -14,14 +14,9 @@ trait ProductVariantTrait
     /** @var Collection<int,AttributeValueInterface> */
     protected $attributes;
 
-    public function __construct()
-    {
-        $this->attributes = new ArrayCollection();
-    }
-
     public function getAttributes(): Collection
     {
-        return $this->attributes;
+        return $this->attributes ?? $this->attributes = new ArrayCollection();
     }
 
     public function addAttribute(?AttributeValueInterface $attribute): void
